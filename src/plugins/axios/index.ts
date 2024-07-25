@@ -3,17 +3,17 @@ import { getCookie, setCookie } from 'plugins/cookies';
 import { redirect } from 'react-router-dom';
 
 const path = undefined;
-axios.create({
-  baseURL: import.meta.env.VITE_APP_API_URL,
+const $axios = axios.create({
+  baseURL: import.meta.env.VITE_APP_API_URL || "http://localhost:8080",
 });
 
-axios.interceptors.request.use((config) => {
+$axios.interceptors.request.use((config) => {
   const token = getCookie('token');
-  config.headers.Authorization = !!token ? `Bearer ${token}` : '';
+  config.headers.Authorization = !token ? `Bearer ${token}` : '';
   return config;
 });
 
-axios.interceptors.response.use(
+$axios.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response.status === 401) redirect('/login');
@@ -29,4 +29,4 @@ axios.interceptors.response.use(
   }
 );
 
-export default axios;
+export default $axios;
