@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "lib": ["dom", "DOM.Iterable", "ESNext"],
-    "baseUrl": ".",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "baseUrl": "src",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,17 +18,8 @@
     "jsx": "react-jsx",
     "paths": {
       "@/*": ["src/*"],
-      "assets/*": ["src/assets/*"],
-      "components/*": ["src/components/*"]
-    }
-  },
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
+      "@/assets/*": ["src/assets/*"],
+      "@/components/*": ["src/components/*"]
     },
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+  }
 }
