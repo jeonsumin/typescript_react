@@ -1,30 +1,45 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 필수 설치 프로그램
 
-Currently, two official plugins are available:
+1. [Node LTS v20.16.0](https://nodejs.org/en/download/package-manager/current)
+2. [Git](https://git-scm.com/downloads)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 기본 라이브러리 리스트
 
-## Expanding the ESLint configuration
+1. eslint
+2. prettier
+3. axios
+4. router
+5.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## dotenv 설정
 
-- Configure the top-level `parserOptions` property like this:
+프로젝트 Checkout 후 Root 폴더에 보면 `.env.sample`이라는 파일이 있습니다.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+개발환경에서 프로젝트를 정상적으로 구동하기 위해선 해당 파일을 `.env`라는 파일로
+복사해 넣어야 합니다.
+
+**_주의: .env.sample 파일을 삭제하거나, .env 파일을 Push하지 마시오!_**
+
+### dotenv 구조
+
+| Env                | Description                                                                                                                            |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `VITE_APP_API_URL` | API Url 입니다. 기본 값은 `http://localhost:8080`으로 설정되어있으며, Context Path의 마지막에 반드시 `슬래시(/)`를 빼 주시기 바랍니다. |
+| `VITE_APP_CDN_URL` | CDN 서비스의 Url. 기본 값은 `http://localhost:3000`으로 설정되어있으며, 이미지 등 리소스 Url 작성 시 사용됩니다. _필수_                |
+
+## 프로젝트 실행하기
+
+프로젝트는 다음과 같은 명령어로 실행할 수 있습니다.
+
+```console
+# npm run dev
+프로젝트 실행
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+실행 후 [http://localhost:3000](http://localhost:3000)에서 확인하실 수 있습니다.
+
+## 참고 사이트
+
+[초기세팅](https://velog.io/@junghyeonsu/React-create-react-app-Typescript-%EC%B4%88%EA%B8%B0-%EC%84%B8%ED%8C%85-%EC%99%84%EB%B2%BD-%EC%A0%95%EB%A6%AC)
