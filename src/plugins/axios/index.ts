@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { getCookie, setCookie } from 'plugins/cookies';
-import { redirect, useLocation } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 
-const path = useLocation().pathname;
+const path = undefined;
 axios.create({
-  baseURL: process.env.VITE_APP_API_URL,
+  baseURL: import.meta.env.VITE_APP_API_URL,
 });
 
 axios.interceptors.request.use((config) => {
@@ -28,3 +28,5 @@ axios.interceptors.response.use(
     return error;
   }
 );
+
+export default axios;

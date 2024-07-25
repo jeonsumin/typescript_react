@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../plugins/axios';
 import { useEffect } from 'react';
 
 export default function Main() {
