@@ -10,7 +10,6 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:react-hooks/recommended',
   ],
-  overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -19,10 +18,12 @@ module.exports = {
     },
   },
   plugins: ['react', 'react-hooks', 'jsx-a11y'],
-  rules: {
-    'react/react-in-jsx-scope': 'off',
-  },
   settings: {
     react: { version: 'detect' },
   },
+  rules: {
+    'react/react-in-jsx-scope': 'off',
+  },
+  overrides: [],
+
 };

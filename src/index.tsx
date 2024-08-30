@@ -2,7 +2,11 @@ import ReactDOM from 'react-dom/client';
 import 'assets/css/commons.css';
 import { RouterProvider } from 'react-router-dom';
 import { router } from 'router';
+import { Provider } from 'react-redux';
+import store from 'store/store';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <RouterProvider router={router} />
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>,
 );
