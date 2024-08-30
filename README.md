@@ -11,7 +11,8 @@
 2. prettier
 3. axios
 4. router
-5.
+5. redux
+6. @redux/toolkit
 
 ## dotenv 설정
 
