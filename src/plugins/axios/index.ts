@@ -4,7 +4,7 @@ import { redirect } from 'react-router-dom';
 
 const path = undefined;
 const $axios = axios.create({
-  baseURL: import.meta.env.VITE_APP_API_URL || "http://localhost:8080",
+  baseURL: import.meta.env.VITE_APP_API_URL || 'http://localhost:8080',
 });
 
 $axios.interceptors.request.use((config) => {
