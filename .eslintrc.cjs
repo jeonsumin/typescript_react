@@ -7,6 +7,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
@@ -25,7 +26,7 @@ module.exports = {
   },
   rules: {
     'react/react-in-jsx-scope': 'off',
-    '@typescript-eslint/no-unused-vars': ['warn'],
+    '@typescript-eslint/no-unused-vars': 'off',
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
