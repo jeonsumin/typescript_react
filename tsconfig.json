@@ -21,7 +21,8 @@
       "@/assets/*": ["src/assets/*"],
       "@/components/*": ["src/components/*"],
       "@/views": ["src/views/*"],
-      "@/plugins": ["src/plugins/*"]
+      "@/plugins": ["src/plugins/*"],
+      "@/utils/*": ["src/utils/*"]
     }
   }
 }

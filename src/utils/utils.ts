@@ -1,8 +1,11 @@
 'use strict';
 import axios, { AxiosHeaders } from 'axios';
-import { Cookies } from 'react-cookie';
+import moment from 'moment';
+import Cookies = Electron.Cookies;
 
-const UTILS = {
+const domain = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+
+export const UTILS = {
   isNullCheckArray(obj: any) {
     if (obj === undefined || obj === '' || obj === null) return 0;
 
@@ -80,7 +83,7 @@ const UTILS = {
   async asyncNetworkingDo(targetURL: string, parameter: any, callBack: any) {
     try {
       await axios
-        .post(`/${targetURL}`, JSON.stringify(parameter))
+        .post(`${domain}/${targetURL}`, JSON.stringify(parameter))
         .then((response) => {
           callBack(response.data);
         });
@@ -89,10 +92,14 @@ const UTILS = {
     }
   },
 
-  async asyncNetworkingWIthFileDo(targetURL: string,parameter: any,callBack: any) {
+  async asyncNetworkingWIthFileDo(
+    targetURL: string,
+    parameter: any,
+    callBack: any
+  ) {
     try {
       await axios
-        .post(`/${targetURL}`, parameter, {
+        .post(`${domain}/${targetURL}`, parameter, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -107,29 +114,44 @@ const UTILS = {
       console.log('Async Network With File Error :: ', e);
     }
   },
-};
-const cookie = new Cookies();
-const expiration = 3600 ; //1시간
-const now = new Date();
-type CookieType = {
-  key: string;
-  value: any;
-};
-const COOKIES = {
-  get(name: string){
-    return cookie.get(name);
-  },
-  getSet(value: CookieType) {
-    let h12 = new Date(now.setTime(now.getTime() + expiration));
-    return cookie.set(value.key, value.value, { path: '/', expires: h12 });
-  },
-  remove(name: string){
-    cookie.remove(name);
-  },
-  removeCookies(key: any) {
-    key.map((x: string) => cookie.remove(x));
-  }
 
-}
+  getValue(obj: any) {
+    if (obj === undefined || obj === null) return '';
 
-module.exports = { UTILS, COOKIES };
+    return String(obj).trim();
+  },
+  formatData(obj: any, format: string) {
+    let formatter = this.getValue(format);
+    if( this.isNull(obj)) return "";
+
+    if(formatter === "") formatter = 'YYYY-MM-DD';
+
+    return moment(obj).format(formatter);
+  },
+};
+
+// const cookie = new Cookies();
+// const expiration = 3600 ; //1시간
+// const now = new Date();
+// type CookieType = {
+//   key: string;
+//   value: any;
+// };
+// const COOKIES = {
+//   get(name: string){
+//     return cookie.get(name);
+//   },
+//   getSet(value: CookieType) {
+//     let h12 = new Date(now.setTime(now.getTime() + expiration));
+//     return cookie.set(value.key, value.value, { path: '/', expires: h12 });
+//   },
+//   remove(name: string){
+//     cookie.remove(name);
+//   },
+//   removeCookies(key: any) {
+//     key.map((x: string) => cookie.remove(x));
+//   }
+//
+// }
+//
+// export default  { UTILS, COOKIES };
