@@ -1,14 +1,14 @@
 import { createBrowserRouter } from 'react-router-dom';
 import About from 'views/About';
 import Main from 'views/Main';
-import Root from 'views/Root';
+import Navigate from '../views/navigate';
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Root />,
+    element: <Navigate />,
     children: [
-      // Root.tsx에 Outlet으로 출력
+      // Navigate.tsx에 Outlet으로 출력
       {
         path: '',
         element: <Main />,
