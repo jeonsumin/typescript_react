@@ -2,10 +2,11 @@ import ReactDOM from 'react-dom/client';
 import 'assets/css/commons.css';
 import { Provider } from 'react-redux';
 import store from 'store/store';
-import Navigate from './views/navigate';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLDivElement).render(
   <Provider store={store}>
-    <Navigate/>
+    <RouterProvider router={router}/>
   </Provider>
 );
