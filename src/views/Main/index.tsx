@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import images from 'assets/img';
 
-const Main = () => {
+export const Main = () => {
   const navigate = useNavigate();
   const doRoute = () => {
     navigate('About');
@@ -14,5 +14,3 @@ const Main = () => {
     </>
   );
 };
-
-export default Main;

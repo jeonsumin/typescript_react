@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-export default function Navigate() {
+export function Navigate() {
   return (
     <>
       <Outlet />

@@ -1,7 +1,5 @@
 import { createHashRouter } from 'react-router-dom';
-import About from 'views/About';
-import Main from 'views/Main';
-import Navigate from '../views/navigate';
+import { Navigate, Main, About } from 'views';
 
 export const router = createHashRouter([
   {
