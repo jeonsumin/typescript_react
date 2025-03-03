@@ -1,7 +1,7 @@
-import { createHashRouter } from 'react-router-dom';
+import { createBrowserRouter, createHashRouter } from 'react-router-dom';
 import { Navigate, Main, About } from 'views';
 
-export const router = createHashRouter([
+export const router = createBrowserRouter([
   {
     path: '/',
     element: <Navigate />,

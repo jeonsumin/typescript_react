@@ -1,7 +1,6 @@
 'use strict';
 import axios, { AxiosHeaders } from 'axios';
 import moment from 'moment';
-import Cookies = Electron.Cookies;
 
 const domain = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 
