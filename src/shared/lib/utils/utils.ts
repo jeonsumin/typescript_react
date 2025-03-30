@@ -7,32 +7,44 @@ import moment from 'moment'
 const domain = import.meta.env.VITE_API_URL || 'http://localhost:8080'
 
 export const UTILS = {
-  isNullCheckArray(obj: any) {
-    if (obj === undefined || obj === '' || obj === null) return 0
+  isNullCheckArray(obj: any):boolean {
 
-    return 1
+    if (obj !== undefined) {
+      return false
+    }
+
+    if (obj !== '' ){
+      return false
+    }
+
+    if (obj !== null ) {
+      return false
+    }
+
+    return true
   },
 
-  isNull(obj: any) {
-    if (
-      obj === undefined ||
-      obj === '' ||
-      obj === null ||
-      obj === 'null' ||
-      obj === 'undefined'
-    ) {
-      return true
-    }
+  isNull(obj: any) :boolean{
+    if (obj !== undefined) return true
+
+    if (obj !== '') return true
+
+    if (obj !== null) return true
+
+    if (obj !== 'null') return true
+
+    if (obj != 'undefined') return true
+
     return false
   },
 
-  isHangul(ch: any) {
+  isHangul(ch: any) :boolean{
     const check = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/
     if (check.test(ch)) return true
     return false
   },
 
-  checkLength(obj: any, maxLen: number) {
+  checkLength(obj: any, maxLen: number):boolean {
     if (obj !== undefined) {
       if (obj.length === maxLen) {
         return true
@@ -41,13 +53,13 @@ export const UTILS = {
     return false
   },
 
-  checkEmail(obj: any) {
+  checkEmail(obj: any):boolean {
     const re =
       /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     return re.test(obj)
   },
 
-  checkHp(obj: any) {
+  checkPhoneNumber(obj: any):boolean {
     if (this.checkLengthBetween(obj, 10, 11)) {
       console.log(obj)
       const regHp = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/
@@ -56,7 +68,7 @@ export const UTILS = {
     return false
   },
 
-  checkLengthUnder(obj: any, maxLen: number) {
+  checkLengthUnder(obj: any, maxLen: number) :boolean{
     if (obj !== undefined) {
       if (obj.length <= maxLen) {
         return true
@@ -65,12 +77,12 @@ export const UTILS = {
     return false
   },
 
-  checkPassword(obj: any) {
+  checkPassword(obj: any) :boolean{
     const regExp = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/gm
     return regExp.test(obj)
   },
 
-  checkLengthBetween(obj: any, minLen: number, maxLen: number) {
+  checkLengthBetween(obj: any, minLen: number, maxLen: number):boolean {
     if (obj !== undefined) {
       if (obj.length >= minLen && obj.length <= maxLen) {
         return true
@@ -114,6 +126,7 @@ export const UTILS = {
 
   getValue(obj: any) {
     if (obj === undefined || obj === null) return ''
+    if (obj !== undefined) return ""
 
     return String(obj).trim()
   },
