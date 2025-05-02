@@ -1,15 +1,13 @@
-import { useNavigate } from 'react-router-dom';
 import images from 'assets/img';
+import { useEffect } from 'react';
 
 export const Main = () => {
-  const navigate = useNavigate();
-  const doRoute = () => {
-    navigate('About');
-  };
+  useEffect(() => {
+    console.log(import.meta.env.VITE_APP_API_URL);
+  }, []);
   return (
     <>
       <h1>Main</h1>
-      <h1 onClick={() => doRoute()}>About</h1>
       <img src={images.reactLg} alt={''} />
     </>
   );

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getCookie, setCookie } from 'plugins/cookies';
+import { getCookie, setCookie } from '../cookies';
 import { redirect } from 'react-router-dom';
 
 const path = undefined;

@@ -17,12 +17,11 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
-      "@/*": ["src/*"],
-      "@/assets/*": ["src/assets/*"],
-      "@/components/*": ["src/components/*"],
-      "@/views": ["src/views/*"],
-      "@/plugins": ["src/plugins/*"],
-      "@/utils/*": ["src/utils/*"]
+      "assets/*": ["src/assets/*"],
+      "components/*": ["src/components/*"],
+      "views/*": ["src/views/*"],
+      "hoc/*": ["src/hoc/*"],
+      "utils/*": ["src/utils/*"]
     }
   }
 }

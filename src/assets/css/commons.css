@@ -1,0 +1,5 @@
+* { margin: 0; padding: 0; -webkit-text-size-adjust: none; word-break: keep-all; box-sizing: border-box; position: relative; -webkit-tap-highlight-color: transparent;user-select: none;}
+*,:after,:before {-webkit-box-sizing: border-box;box-sizing: border-box;}
+html {-webkit-text-size-adjust: none;-webkit-overflow-scrolling: touch;overflow-y: auto;-ms-overflow-x: hidden;    scroll-behavior: auto; background-color: rgba(0, 0, 0, 0.53)}
+body {width: 100%; background-color: #ffff; margin: 0 auto; height: 100vh}
+/* html, body 기본 흰배경의 사이트일때 */
