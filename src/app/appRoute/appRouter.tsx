@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import {Main} from 'views';
+import {Main} from 'pages';
 
 export const AppRouter = () => {
   return (

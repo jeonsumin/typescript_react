@@ -1,6 +1,7 @@
 import reactLogo from './react.svg';
-const images = {
+
+export const images = {
   reactLg: reactLogo,
 };
 
-export default images;
+
