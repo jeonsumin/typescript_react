@@ -3,3 +3,4 @@
 html {-webkit-text-size-adjust: none;-webkit-overflow-scrolling: touch;overflow-y: auto;-ms-overflow-x: hidden;    scroll-behavior: auto; background-color: rgba(0, 0, 0, 0.53)}
 body {width: 100%; background-color: #ffff; margin: 0 auto; height: 100vh}
 /* html, body 기본 흰배경의 사이트일때 */
+.modal_wrap{}

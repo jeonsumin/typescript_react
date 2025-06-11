@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react';
 import { images } from 'assets';
 import { ApiService } from 'shared/ApiService';
 import { useAxios } from 'hook/useAxios';
+import { useModals } from '../../shared/useModal';
+import { ModalComponent } from 'components';
 
 export const Main = () => {
   const [title, setTitle] = useState(null);
   const api = new ApiService('https://jsonplaceholder.typicode.com');
+  const { openModal } = useModals();
   const { loading, error, callback } = useAxios({
     url: 'https://jsonplaceholder.typicode.com/posts/1',
     onSuccess: (res) => {
@@ -41,13 +44,22 @@ export const Main = () => {
     // setTitle(response.title);
   };
 
+  const openModalHandler = () => {
+    openModal(ModalComponent, {
+      onSubmit: () => {
+        console.log('On Submit 로직 처리...');
+      },
+    });
+  };
+
   if (loading) return <h1>loading</h1>;
 
   return (
     <>
       <h1>Main</h1>
       <img src={images.reactLg} alt={''} />
-      <button onClick={() => callback()}> fetch Data</button>
+      {/*<button onClick={() => callback()}> fetch Data</button>*/}
+      <button onClick={openModalHandler}> OPEN MODAL</button>
       {/*<button onClick={postMessage}> POST Data</button>*/}
       {title}
     </>
