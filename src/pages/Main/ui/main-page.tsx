@@ -1,3 +1,9 @@
+import { SurveyForm } from 'widgets';
+
 export function MainPage() {
-  return (<h1>Main</h1>)
+  return (
+    <div>
+      <SurveyForm />
+    </div>
+  )
 }

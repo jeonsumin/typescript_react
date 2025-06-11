@@ -22,12 +22,12 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '~app': path.resolve('src/app'),
-      '~entities': path.resolve('src/entities'),
-      '~features': path.resolve('src/features'),
-      '~pages': path.resolve('src/pages'),
-      '~shared': path.resolve('src/shared'),
-      '~widgets': path.resolve('src/widgets'),
+      'app': path.resolve('src/app'),
+      'entities': path.resolve('src/entities'),
+      'features': path.resolve('src/features'),
+      'pages': path.resolve('src/pages'),
+      'shared': path.resolve('src/shared'),
+      'widgets': path.resolve('src/widgets'),
     },
   },
 })

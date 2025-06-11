@@ -1,169 +1,43 @@
 module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:@typescript-eslint/recommended',
+  ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
-  env: {
-    browser: true,
-    es2020: true,
+  plugins: ['react', 'react-hooks', 'jsx-a11y', '@typescript-eslint'],
+  settings: {
+    react: { version: 'detect' },
   },
-  plugins: ['react-refresh'],
-  extends: [
-    'plugin:eslint-plugin-import/recommended',
-    'plugin:react-hooks/recommended',
-    'airbnb',
-    'prettier',
-  ],
-  ignorePatterns: [
-    'node_modules',
-    'dist',
-    '.eslintrc.cjs',
-    'vite-env.d.ts',
-    'vite.config.ts',
-  ],
   rules: {
     'react/react-in-jsx-scope': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'react/function-component-definition': 'off',
-    'import/prefer-default-export': 'off',
-    'class-methods-use-this': 'off',
-    'max-classes-per-file': 'off',
-    'no-underscore-dangle': 'off',
-    'react/destructuring-assignment': ['off'],
-    'no-param-reassign': 'off',
-    '@typescript-eslint/lines-between-class-members': 'off',
-    'no-throw-literal': 'off',
-    'consistent-return': 'off',
-    'import/no-extraneous-dependencies': 'off',
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      { '': 'never', tsx: 'never', ts: 'never' },
-    ],
-    'import/order': [
-      'error',
-      {
-        pathGroups: [
-          { pattern: 'react', group: 'builtin' },
-          { pattern: 'vite', group: 'builtin' },
-          { pattern: 'shared/**', group: 'internal', position: 'before' },
-          { pattern: 'entities/**', group: 'internal', position: 'before' },
-          { pattern: 'features/**', group: 'internal', position: 'before' },
-          { pattern: 'widgets/**', group: 'internal', position: 'before' },
-          { pattern: 'pages/**', group: 'internal', position: 'before' },
-        ],
-        pathGroupsExcludedImportTypes: ['builtin'],
-        groups: [
-          'builtin',
-          'external',
-          'internal',
-          'parent',
-          'sibling',
-          'index',
-        ],
-        'newlines-between': 'never',
-        alphabetize: { order: 'asc', caseInsensitive: true },
-      },
-    ],
-    'no-restricted-imports': [
-      'error',
-      {
-        patterns: [
-          {
-            group: [
-              'shared/*/*/**',
-              'entities/*/**',
-              'features/*/**',
-              'widgets/*/**',
-              'pages/*/**',
-              'app/**',
-            ],
-            message:
-              'Direct access to the internal parts of the module is prohibited',
-          },
-          {
-            group: [
-              '../**/shared',
-              '../**/entities',
-              '../**/features',
-              '../**/widgets',
-              '../**/pages',
-              '../**/app',
-            ],
-            message: 'Prefer absolute imports instead of relatives',
-          },
-        ],
-      },
-    ],
+    '@typescript-eslint/no-unused-vars': 'off',
+    'jsx-a11y/no-noninteractive-element-interactions': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    '@typescript-eslint/no-empty-interface': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
   },
   overrides: [
     {
-      files: [
-        '*.ts',
-        '.*.ts',
-        './**/*.ts',
-        './**/.*.ts',
-        '*.tsx',
-        '.*.tsx',
-        './**/*.tsx',
-        './**/.*.tsx',
-      ],
-      parser: '@typescript-eslint/parser',
-      parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        project: true,
-      },
-      plugins: ['@typescript-eslint'],
-      extends: [
-        'plugin:eslint-plugin-import/typescript',
-        'airbnb-typescript',
-        'prettier',
-      ],
+      files: ['*.ts', '*.tsx'],
       rules: {
-        'react/require-default-props': 'off',
-        '@typescript-eslint/no-use-before-define': 'off',
-        '@typescript-eslint/no-throw-literal': 'off',
-        '@typescript-eslint/lines-between-class-members': 'off',
-        'react/jsx-max-props-per-line': [
-          'error',
-          { maximum: 1, when: 'always' },
-        ],
-        '@typescript-eslint/naming-convention': [
-          'error',
-          {
-            selector: 'variable',
-            format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
-            leadingUnderscore: 'allow',
-            trailingUnderscore: 'allow',
-          },
-          {
-            selector: 'variable',
-            modifiers: ['destructured'],
-            format: ['camelCase', 'PascalCase', 'snake_case', 'UPPER_CASE'],
-            leadingUnderscore: 'allow',
-          },
-        ],
-        'import/extensions': [
-          'error',
-          'ignorePackages',
-          { '': 'never', tsx: 'never', ts: 'never' },
-        ],
-        'import/no-extraneous-dependencies': [
-          'error',
-          {
-            devDependencies: [
-              '**/__tests__/**',
-              '**/__mocks__/**',
-              '**/*.test.ts',
-              '**/*.test.tsx',
-              '**/*.spec.ts',
-              'src/shared/lib/test/setup.ts',
-              'src/shared/lib/test/test.lib.tsx',
-            ],
-          },
-        ],
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
       },
     },
   ],
-}
+};
