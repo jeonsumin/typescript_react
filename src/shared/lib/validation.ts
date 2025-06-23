@@ -2,7 +2,7 @@ type Value = any;
 type ErrorMessage = false | string;
 type FieldValues = { [key: string]: Value };
 
-const is = {
+export const is = {
   match: (testFn: Function, message = '') => (
     value: Value,
     fieldValues: FieldValues,
@@ -23,6 +23,9 @@ const is = {
   notEmptyArray: () => (value: Value): ErrorMessage =>
     Array.isArray(value) && value.length === 0 && 'Please add at least one item',
 
+  notEmptyObject: () => (value: Value): ErrorMessage =>
+    Object.keys(value).length === 0 && 'Object must not be empty',
+
   email: () => (value: Value): ErrorMessage =>
     !!value && !/.+@.+\..+/.test(value) && 'Must be a valid email',
 
@@ -34,9 +37,7 @@ const is = {
     // eslint-disable-next-line no-useless-escape
     !/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/.test(value) &&
     'Must be a valid URL',
-};
+}
 
 const isNilOrEmptyString = (value: Value): boolean =>
-  value === undefined || value === null || value === '';
-
-export default is;
+  value === undefined || value === null || value === ''
