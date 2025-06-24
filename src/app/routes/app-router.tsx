@@ -1,12 +1,13 @@
 import { MainPage } from 'pages'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import {  Route, Routes } from 'react-router-dom'
+import { ROUTES } from 'shared/config'
+import { LoginPage } from 'pages/login'
 
-export function AppRotes() {
+export function AppRouter() {
   return (
-    <BrowserRouter>
       <Routes>
-        <Route element={<MainPage />}  path="/"/>
+        <Route element={<MainPage />}  path={ROUTES.HOME}/>
+        <Route element={<LoginPage/> } path={ROUTES.LOGIN}/>
       </Routes>
-    </BrowserRouter>
   )
 }

@@ -1,17 +1,18 @@
-import { createRoot } from 'react-dom/client';
+import { createRoot } from 'react-dom/client'
 import 'shared/styles/commons.css'
-import { Provider } from 'react-redux'
-import { AppRotes } from './routes/app-router'
-import { store } from './store'
+import { AppRouter } from './routes'
 import { ModalProvider } from 'shared/lib/modal'
 import { StrictMode } from 'react'
+import { RouterProvider, StoreProvider } from './provider'
 
 createRoot(document.getElementById('root') as HTMLDivElement).render(
   <StrictMode>
-    <Provider store={store}>
+    <StoreProvider>
       <ModalProvider>
-        <AppRotes />
+        <RouterProvider>
+          <AppRouter />
+        </RouterProvider>
       </ModalProvider>
-    </Provider>
+    </StoreProvider>
   </StrictMode>,
 )
