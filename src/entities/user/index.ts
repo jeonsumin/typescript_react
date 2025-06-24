@@ -5,7 +5,7 @@ import {
   setUserToLocalStorage,
 } from './lib/userLocalStorageAction'
 import { User , UserState} from './model/types'
-import useReducer from './model/userSlice'
+import useReducer from './model/user-slice'
 import { login, logout, checkAuth } from './model/thunks'
 
 export type { User , UserState}
