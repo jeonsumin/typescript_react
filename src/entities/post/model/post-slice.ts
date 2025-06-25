@@ -1,6 +1,6 @@
 import { PostState } from 'entities/post/model/types'
 import { createSlice } from '@reduxjs/toolkit'
-import { fetchPosts } from 'entities/post/model/thunck'
+import { fetchPosts } from 'entities/post/model/thunks'
 
 const initialState: PostState = {
   isLoading: false,
